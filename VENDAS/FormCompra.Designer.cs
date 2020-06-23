@@ -39,6 +39,13 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.txtProduto = new System.Windows.Forms.TextBox();
+            this.lblProduto = new System.Windows.Forms.Label();
+            this.cmbProduto = new System.Windows.Forms.ComboBox();
+            this.codcompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,9 +54,14 @@
             this.dataGridViewCompra.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCompra.Location = new System.Drawing.Point(389, 24);
+            this.dataGridViewCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codcompra,
+            this.nomeproduto,
+            this.codigo,
+            this.fornecedor});
+            this.dataGridViewCompra.Location = new System.Drawing.Point(320, 24);
             this.dataGridViewCompra.Name = "dataGridViewCompra";
-            this.dataGridViewCompra.Size = new System.Drawing.Size(399, 150);
+            this.dataGridViewCompra.Size = new System.Drawing.Size(521, 150);
             this.dataGridViewCompra.TabIndex = 0;
             // 
             // cmbFornecedor
@@ -89,7 +101,7 @@
             // lblCod
             // 
             this.lblCod.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCod.Location = new System.Drawing.Point(214, 35);
+            this.lblCod.Location = new System.Drawing.Point(102, 15);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(100, 23);
             this.lblCod.TabIndex = 4;
@@ -170,12 +182,76 @@
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // txtProduto
+            // 
+            this.txtProduto.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProduto.Location = new System.Drawing.Point(242, 83);
+            this.txtProduto.Name = "txtProduto";
+            this.txtProduto.Size = new System.Drawing.Size(38, 22);
+            this.txtProduto.TabIndex = 13;
+            this.txtProduto.Leave += new System.EventHandler(this.txtProduto_Leave);
+            // 
+            // lblProduto
+            // 
+            this.lblProduto.AutoSize = true;
+            this.lblProduto.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduto.Location = new System.Drawing.Point(19, 86);
+            this.lblProduto.Name = "lblProduto";
+            this.lblProduto.Size = new System.Drawing.Size(61, 14);
+            this.lblProduto.TabIndex = 12;
+            this.lblProduto.Text = "Produto : ";
+            // 
+            // cmbProduto
+            // 
+            this.cmbProduto.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProduto.FormattingEnabled = true;
+            this.cmbProduto.Location = new System.Drawing.Point(105, 83);
+            this.cmbProduto.Name = "cmbProduto";
+            this.cmbProduto.Size = new System.Drawing.Size(121, 22);
+            this.cmbProduto.TabIndex = 11;
+            this.cmbProduto.SelectedIndexChanged += new System.EventHandler(this.cmbProduto_SelectedIndexChanged);
+            // 
+            // codcompra
+            // 
+            this.codcompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codcompra.DataPropertyName = "codcompra";
+            this.codcompra.HeaderText = "CODIGO COMPRA";
+            this.codcompra.Name = "codcompra";
+            this.codcompra.Width = 113;
+            // 
+            // nomeproduto
+            // 
+            this.nomeproduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nomeproduto.DataPropertyName = "nomeproduto";
+            this.nomeproduto.HeaderText = "NOME PRODUTO";
+            this.nomeproduto.Name = "nomeproduto";
+            this.nomeproduto.Width = 111;
+            // 
+            // codigo
+            // 
+            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "CODIGO FORNECEDOR";
+            this.codigo.Name = "codigo";
+            this.codigo.Width = 139;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "FORNECEDOR";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.Width = 107;
+            // 
             // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 216);
+            this.ClientSize = new System.Drawing.Size(873, 379);
+            this.Controls.Add(this.txtProduto);
+            this.Controls.Add(this.lblProduto);
+            this.Controls.Add(this.cmbProduto);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.txtFornecedor);
             this.Controls.Add(this.btnSair);
@@ -210,5 +286,12 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.TextBox txtFornecedor;
         private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.TextBox txtProduto;
+        private System.Windows.Forms.Label lblProduto;
+        private System.Windows.Forms.ComboBox cmbProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codcompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeproduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
     }
 }

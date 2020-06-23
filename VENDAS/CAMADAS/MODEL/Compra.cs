@@ -11,6 +11,7 @@ namespace VENDAS.CAMADAS.MODEL
         public int codcompra { get; set; }
         public int codigo { get; set; }
         public string fornecedor { get; set; }
+        public string nomeproduto { get; set; }
        
         
     }

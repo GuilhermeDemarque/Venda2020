@@ -23,6 +23,7 @@ namespace VENDAS
             CAMADAS.DAL.Clientes dalCli = new CAMADAS.DAL.Clientes();
             dtGrvClientes.DataSource = "";
             dtGrvClientes.DataSource = dalCli.Select();
+            gpbPesquisa.Visible = false;
         }
 
         
@@ -95,6 +96,56 @@ namespace VENDAS
 
         }
 
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            gpbPesquisa.Visible = !gpbPesquisa.Visible;
+        }
+
+        private void rdbTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltro.Visible = false;
+            txtFiltro.Visible = false;
+            btnFiltrar.Visible = false;
+
+            CAMADAS.BLL.Clientes bllClientes = new CAMADAS.BLL.Clientes();
+            dtGrvClientes.DataSource = "";
+            dtGrvClientes.DataSource = bllClientes.Select();
+        }
+
+        private void rdbCodigo_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltro.Text = "Informe o Codigo do Cliente";
+            lblFiltro.Visible = true;
+            txtFiltro.Visible = true;
+            btnFiltrar.Visible = true;
+            txtFiltro.Focus();
+        }
+
+        private void rbdNome_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltro.Text = "Informe o Nome do Cliente";
+            lblFiltro.Visible = true;
+            txtFiltro.Visible = true;
+            btnFiltrar.Visible = true;
+            txtFiltro.Focus();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            List<CAMADAS.MODEL.Clientes> lstClientes = new List<CAMADAS.MODEL.Clientes>();
+            CAMADAS.DAL.Clientes dalClientes = new CAMADAS.DAL.Clientes();
+
+            if (rdbCodigo.Checked)
+            {
+                int codigo = Convert.ToInt32(txtFiltro.Text);
+                lstClientes = dalClientes.SelectByCodigo(codigo);
+            }
+            else if (rbdNome.Checked)
+                lstClientes = dalClientes.SelectByNome(txtFiltro.Text);
+
+            dtGrvClientes.DataSource = "";
+            dtGrvClientes.DataSource = lstClientes;
+        }
     }
 
 }

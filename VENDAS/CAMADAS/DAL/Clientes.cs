@@ -51,6 +51,89 @@ namespace VENDAS.CAMADAS.DAL
             return lstClientes;
 
         }
+        public List<MODEL.Clientes> SelectByCodigo(int codigo)
+        {
+
+            List<MODEL.Clientes> lstClientes = new List<MODEL.Clientes>();
+            SqlConnection conexao = new SqlConnection(strCon);
+
+            string sql = "Select * from Clientes WHERE codigo=@codigo;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.Clientes cliente = new MODEL.Clientes();
+                    cliente.codigo = Convert.ToInt32(dados[0].ToString());
+                    cliente.nome = dados["nome"].ToString();
+                    cliente.cpf = dados["cpf"].ToString();
+                    cliente.celular= dados["celular"].ToString();
+                    cliente.municipio = dados["municipio"].ToString();
+                    cliente.endereco = dados["endereco"].ToString();
+                    cliente.cep = dados["cep"].ToString();
+
+                    lstClientes.Add(cliente);
+
+                }
+            }
+            catch
+            {
+
+                Console.WriteLine("Erro no comando select de Clientes");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return lstClientes;
+
+        }
+
+        public List<MODEL.Clientes> SelectByNome(string nome)
+        {
+
+            List<MODEL.Clientes> lstClientes = new List<MODEL.Clientes>();
+            SqlConnection conexao = new SqlConnection(strCon);
+
+            string sql = "Select * from Clientes WHERE (nome LIKE @nome) ; ";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.Clientes cliente = new MODEL.Clientes();
+                    cliente.codigo = Convert.ToInt32(dados[0].ToString());
+                    cliente.nome = dados["nome"].ToString();
+                    cliente.cpf = dados["cpf"].ToString();
+                    cliente.celular = dados["celular"].ToString();
+                    cliente.municipio = dados["municipio"].ToString();
+                    cliente.endereco= dados["endereco"].ToString();
+                    cliente.cep= dados["cep"].ToString();
+
+                    lstClientes.Add(cliente);
+
+                }
+            }
+            catch
+            {
+
+                Console.WriteLine("Erro no comando select de Clientes");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return lstClientes;
+
+        }
         public void Insert(MODEL.Clientes cliente)
         {
             SqlConnection conexao = new SqlConnection(strCon);

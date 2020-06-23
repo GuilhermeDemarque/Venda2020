@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dtGrvClientes = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +50,16 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.gpbPesquisa = new System.Windows.Forms.GroupBox();
+            this.rdbTodo = new System.Windows.Forms.RadioButton();
+            this.rdbCodigo = new System.Windows.Forms.RadioButton();
+            this.rbdNome = new System.Windows.Forms.RadioButton();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrvClientes)).BeginInit();
+            this.gpbPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,24 +77,24 @@
             this.dtGrvClientes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dtGrvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGrvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGrvClientes.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGrvClientes.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtGrvClientes.Location = new System.Drawing.Point(4, 52);
             this.dtGrvClientes.Name = "dtGrvClientes";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGrvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGrvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtGrvClientes.Size = new System.Drawing.Size(682, 158);
             this.dtGrvClientes.TabIndex = 1;
             // 
@@ -283,11 +292,102 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // gpbPesquisa
+            // 
+            this.gpbPesquisa.Controls.Add(this.lblFiltro);
+            this.gpbPesquisa.Controls.Add(this.btnFiltrar);
+            this.gpbPesquisa.Controls.Add(this.txtFiltro);
+            this.gpbPesquisa.Controls.Add(this.rbdNome);
+            this.gpbPesquisa.Controls.Add(this.rdbCodigo);
+            this.gpbPesquisa.Controls.Add(this.rdbTodo);
+            this.gpbPesquisa.Font = new System.Drawing.Font("Garamond", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbPesquisa.Location = new System.Drawing.Point(41, 256);
+            this.gpbPesquisa.Name = "gpbPesquisa";
+            this.gpbPesquisa.Size = new System.Drawing.Size(333, 155);
+            this.gpbPesquisa.TabIndex = 20;
+            this.gpbPesquisa.TabStop = false;
+            this.gpbPesquisa.Text = "Pesquisa Clientes";
+            // 
+            // rdbTodo
+            // 
+            this.rdbTodo.AutoSize = true;
+            this.rdbTodo.Checked = true;
+            this.rdbTodo.Location = new System.Drawing.Point(7, 20);
+            this.rdbTodo.Name = "rdbTodo";
+            this.rdbTodo.Size = new System.Drawing.Size(60, 18);
+            this.rdbTodo.TabIndex = 0;
+            this.rdbTodo.TabStop = true;
+            this.rdbTodo.Text = "Todos";
+            this.rdbTodo.UseVisualStyleBackColor = true;
+            this.rdbTodo.CheckedChanged += new System.EventHandler(this.rdbTodo_CheckedChanged);
+            // 
+            // rdbCodigo
+            // 
+            this.rdbCodigo.AutoSize = true;
+            this.rdbCodigo.Location = new System.Drawing.Point(7, 43);
+            this.rdbCodigo.Name = "rdbCodigo";
+            this.rdbCodigo.Size = new System.Drawing.Size(66, 18);
+            this.rdbCodigo.TabIndex = 1;
+            this.rdbCodigo.Text = "Codigo";
+            this.rdbCodigo.UseVisualStyleBackColor = true;
+            this.rdbCodigo.CheckedChanged += new System.EventHandler(this.rdbCodigo_CheckedChanged);
+            // 
+            // rbdNome
+            // 
+            this.rbdNome.AutoSize = true;
+            this.rbdNome.Location = new System.Drawing.Point(6, 66);
+            this.rbdNome.Name = "rbdNome";
+            this.rbdNome.Size = new System.Drawing.Size(66, 18);
+            this.rbdNome.TabIndex = 2;
+            this.rbdNome.Text = "Nome :";
+            this.rbdNome.UseVisualStyleBackColor = true;
+            this.rbdNome.CheckedChanged += new System.EventHandler(this.rbdNome_CheckedChanged);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(7, 110);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(131, 22);
+            this.txtFiltro.TabIndex = 3;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(163, 110);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.Location = new System.Drawing.Point(6, 86);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(240, 21);
+            this.lblFiltro.TabIndex = 5;
+            // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.FlatAppearance.BorderSize = 0;
+            this.btnPesquisa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisa.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisa.Location = new System.Drawing.Point(710, 299);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(155, 23);
+            this.btnPesquisa.TabIndex = 21;
+            this.btnPesquisa.Text = "Pesquisa";
+            this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(922, 450);
+            this.Controls.Add(this.btnPesquisa);
+            this.Controls.Add(this.gpbPesquisa);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.txtCodigo);
@@ -314,6 +414,8 @@
             this.Text = "Vendas 2020";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrvClientes)).EndInit();
+            this.gpbPesquisa.ResumeLayout(false);
+            this.gpbPesquisa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,6 +443,14 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.GroupBox gpbPesquisa;
+        private System.Windows.Forms.RadioButton rbdNome;
+        private System.Windows.Forms.RadioButton rdbCodigo;
+        private System.Windows.Forms.RadioButton rdbTodo;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Button btnPesquisa;
     }
 }
 

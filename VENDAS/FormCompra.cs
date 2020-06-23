@@ -23,16 +23,26 @@ namespace VENDAS
             cmbFornecedor.DisplayMember = "nome";
             cmbFornecedor.ValueMember = "codigo";
             cmbFornecedor.DataSource = bllFor.Select();
+            CAMADAS.DAL.Produtos bllProd = new CAMADAS.DAL.Produtos();
+            cmbProduto.DisplayMember = "nomeproduto";
+            cmbProduto.ValueMember = "codproduto";
+            cmbProduto.DataSource = bllProd.Select();
             CAMADAS.BLL.Compra bllCompra = new CAMADAS.BLL.Compra();
             dataGridViewCompra.DataSource = "";
             dataGridViewCompra.DataSource = bllCompra.Select();
+
+           
             habilitaControles(false);
+
+
+           
 
         }
         void limpaCampos()
         {
             lblCod.Text = "-1";
             txtFornecedor.Text = "";
+            txtProduto.Text = "";
 
         }
 
@@ -40,6 +50,9 @@ namespace VENDAS
         {
             txtFornecedor.Enabled = status;
             cmbFornecedor.Enabled = status;
+
+            txtProduto.Enabled = status;
+            cmbProduto.Enabled = status;
 
             btnCompra.Enabled = !status;
             btnEditar.Enabled = !status;
@@ -102,6 +115,7 @@ namespace VENDAS
             compra.codcompra = Convert.ToInt32(lblCod.Text);
             compra.codigo = Convert.ToInt32(txtFornecedor.Text);
             compra.fornecedor = cmbFornecedor.Text;
+            compra.nomeproduto = cmbProduto.Text;
 
 
             CAMADAS.BLL.Compra bllCom = new CAMADAS.BLL.Compra();
@@ -109,11 +123,39 @@ namespace VENDAS
                 bllCom.Insert(compra);
             else bllCom.Update(compra);
 
+
+            
+
             dataGridViewCompra.DataSource = "";
             dataGridViewCompra.DataSource = bllCom.Select();
 
             habilitaControles(false);
 
+        }
+
+        private void cmbProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtProduto.Text = cmbProduto.SelectedValue.ToString();
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void txtProduto_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtProduto.Text != "")
+                    cmbProduto.SelectedValue = Convert.ToInt32(txtProduto.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Produto Invalido");
+            }
         }
     }
 }

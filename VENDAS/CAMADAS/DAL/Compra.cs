@@ -30,8 +30,9 @@ namespace VENDAS.CAMADAS.DAL
                     compra.codcompra = Convert.ToInt32(dados[0].ToString());
                     compra.codigo = Convert.ToInt32(dados["codigo"].ToString());
                     compra.fornecedor = dados["fornecedor"].ToString();
-                   
-                    
+                    compra.nomeproduto= dados["nomeproduto"].ToString();
+
+
 
                     lstCompra.Add(compra);
 
@@ -53,12 +54,13 @@ namespace VENDAS.CAMADAS.DAL
         public void Insert(MODEL.Compra compra)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "INSERT INTO Compra VALUES ( @codigo, @fornecedor  );";
+            string sql = "INSERT INTO Compra VALUES ( @codigo, @fornecedor,@nomeproduto  );";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@codigo", compra.codigo);
             cmd.Parameters.AddWithValue("@fornecedor", compra.fornecedor);
-            
-            
+            cmd.Parameters.AddWithValue("@nomeproduto", compra.nomeproduto);
+
+
             try
             {
                 conexao.Open();
@@ -77,14 +79,15 @@ namespace VENDAS.CAMADAS.DAL
         public void Update(MODEL.Compra compra)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "UPDATE Compra SET codigo=@codigo, fornecedor=@fornecedor   ";
+            string sql = "UPDATE Compra SET codigo=@codigo, fornecedor=@fornecedor , nomeproduto=@nomeproduto   ";
             sql += "WHERE codcompra=@codcompra;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@codcompra", compra.codcompra);
             cmd.Parameters.AddWithValue("@codigo", compra.codigo);
             cmd.Parameters.AddWithValue("@fornecedor", compra.fornecedor);
-            
-            
+            cmd.Parameters.AddWithValue("@nomproduto", compra.nomeproduto);
+
+
             try
             {
                 conexao.Open();
